@@ -139,6 +139,7 @@ body {
  .productName{
     color: rgb(10, 19, 6);
     font-size: 7rem;
+    transition: all 2s ease-in-out;
  }
 
  .btn-buynow {
@@ -193,22 +194,63 @@ body {
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
  }
-.div3 { 
+ .div3 {
     grid-area: 1 / 4 / 2 / 6;
-
     border-radius: 10px;
     padding: 40px;
-
     margin-top: 10px;
+
     animation: appear linear;
     animation-timeline: view();
     animation-range: entry 0% cover 40%;
+
+    position: relative; /* Required for shadow positioning */
 }
-.div3 model-viewer{
+
+.div3::after {
+    content: "";
+    position: absolute;
+    bottom: -10px; /* Adjust shadow position */
+    left: 50%;
+    width: 120%; /* Make the shadow wider */
+    height: 40px; /* Adjust the height */
+    background: rgba(0, 0, 0, 0.25); /* Darker center, lighter edges */
+    border-radius: 50%; /* Creates an oval shape */
+    filter: blur(20px); /* Softens the edges */
+    transform: translateX(-50%);
+    z-index: -1;
+}
+
+
+
+
+.div3 model-viewer {
     width: 700px;
     height: 700px;
+    filter: drop-shadow(0px 10px 20px rgba(90, 90, 90, 0.5));
+    transition: all 0.3s ease-in-out;
 }
-.div4 { grid-area: 2 / 3 / 3 / 6; }
+
+.div4 { 
+    grid-area: 3 / 3 / 4 / 6;  
+    margin: 20px 10px;  
+    padding: 40px;  
+    border: 1px solid rgb(201, 201, 201);  
+    border-radius: 10px;  
+    background-color: rgba(253, 251, 251, 0.27);  
+    background: url('lemon.png') no-repeat bottom right;  
+    background-size: 300px; /* Increased size */
+    background-position: bottom right;  
+
+    /* Optional shadow for better appearance */
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);  
+
+    /* Animation */
+    animation: appear linear;  
+    animation-timeline: view();  
+    animation-range: entry 0% cover 40%;  
+}
+
 .div5 { 
     grid-area: 2 / 1 / 2 / 6;
     border-radius: 10px;
@@ -239,7 +281,54 @@ body {
     letter-spacing: 1px;
  }
 
-.div6 { grid-area: 4 / 1 / 5 / 4; }
+ .div6 { 
+    grid-area: 4 / 1 / 5 / 6;
+    margin: 20px 10px;  
+    padding: 40px;  
+    border: 1px solid rgb(201, 201, 201);  
+    border-radius: 10px;  
+    background-color: rgba(253, 251, 251, 0.27);  
+    background: url('lemonhalf.png') no-repeat bottom right;  
+    background-size: 350px; /* Increased size */
+    background-position: bottom right;  
+    animation: appear linear;  
+    animation-timeline: view();  
+    animation-range: entry 0% cover 40%;  
+
+    /* New styles for better horizontal alignment */
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px; /* Increased space between sections */
+    justify-content: space-evenly; /* More even spacing */
+    align-items: flex-start; /* Aligns sections properly */
+    text-align: left; /* Ensures text is aligned left */
+}
+
+.div6 > div {
+    flex: 1; /* Distributes space evenly */
+    min-width: 320px; /* Slightly increased width for better layout */
+    max-width: 400px; /* Prevents sections from getting too wide */
+}
+
+.div6 h1 {
+    width: 100%;
+    text-align: center; /* Centers the title */
+    margin-bottom: 20px;
+}
+
+.div6 h2 {
+    font-size: 1.5em; /* Slightly larger headings */
+    margin-bottom: 10px;
+    color: #2c3e50; /* A dark color for contrast */
+}
+
+.div6 p {
+    font-size: 1em;
+    line-height: 1.5;
+    color: #444; /* Softer text color */
+}
+
+
 .div7 { grid-area: 4 / 4 / 5 / 6; }
 .div8 { grid-area: 5 / 1 / 6 / 3; }
 .div9 { grid-area: 5 / 3 / 6 / 6; }
